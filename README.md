@@ -1,22 +1,21 @@
-# HttpsTest
-iOS https trust CA(Certificate Authority) 
-## iOS开发信任SSL证书和自签名证书实现HTTPS
+# iOS开发信任SSL证书和自签名证书实现HTTPS
 
-### 首先来分析一下什么是HTTPS以及了解HTTPS对于iOS开发者的意义
 
-* HTTPS 以及SSL/TSL
 
-1.  什么是SSL？
+## 首先来分析一下什么是HTTPS以及了解HTTPS对于iOS开发者的意义
+###HTTPS 以及SSL/TSL
+
+* 什么是SSL？
 
 SSL(Secure Sockets Layer, 安全套接字层)，因为原先互联网上使用的 HTTP 协议是明文的，存在很多缺点，比如传输内容会被偷窥（嗅探）和篡改。 SSL 协议的作用就是在传输层对网络连接进行加密。
 
-2. 何为TLS？
+* 何为TLS？
 
 到了1999年，SSL 因为应用广泛，已经成为互联网上的事实标准。IETF 就在那年把 SSL 标准化。标准化之后的名称改为 TLS（Transport Layer Security，传输层安全协议）。**SSL与TLS可以视作同一个东西的不同阶段**
 
 
 
-3. HTTPS
+* HTTPS
 
 简单来说，HTTPS = HTTP + SSL/TLS, 也就是 HTTP over SSL 或 HTTP over TLS，这是后面加 S 的由来 。
 
@@ -32,11 +31,8 @@ SSL(Secure Sockets Layer, 安全套接字层)，因为原先互联网上使用�
 
 
 
-
-
-### 发送HTTPS请求信任SSL证书和自签名证书，分为三种情况
-
-1. 如果你的app服务端安装的是SLL颁发的CA，可以使用系统方法直接实现信任SSL证书，关于Apple对SSL证书的要求请参考：[苹果官方文档CertKeyTrustProgGuide](https://developer.apple.com/library/mac/documentation/Security/Conceptual/CertKeyTrustProgGuide/iPhone_Tasks/iPhone_Tasks.html)
+## 发送HTTPS请求信任SSL证书和自签名证书，分为三种情况
+1.如果你的app服务端安装的是SLL颁发的CA，可以使用系统方法直接实现信任SSL证书，关于Apple对SSL证书的要求请参考：[苹果官方文档CertKeyTrustProgGuide](https://developer.apple.com/library/mac/documentation/Security/Conceptual/CertKeyTrustProgGuide/iPhone_Tasks/iPhone_Tasks.html)
 
 这种方式不需要在Bundle中引入CA文件，可以交给系统去判断服务器端的证书是不是SSL证书，验证过程也不需要我们去具体实现。
 
@@ -58,8 +54,7 @@ NSURL *URL = [NSURL URLWithString:URLString];
 > 当然，如果你需要同时信任SSL证书和自签名证书的话还是需要在代码中实现CA的验证，这种情况在后面会提到。
 
 
-
-2. 基于AFNetWorking的SSL特定服务器证书信任处理，重写AFNetWorking的customSecurityPolicy方法,这里我创建了一个HttpRequest类，分别对GET和POST方法进行了封装，以GET方法为例：
+2.基于AFNetWorking的SSL特定服务器证书信任处理，重写AFNetWorking的customSecurityPolicy方法,这里我创建了一个HttpRequest类，分别对GET和POST方法进行了封装，以GET方法为例：
 
 
 
