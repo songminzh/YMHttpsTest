@@ -10,13 +10,13 @@ iOS https trust CA(Certificate Authority)
 
 SSL(Secure Sockets Layer, 安全套接字层)，因为原先互联网上使用的 HTTP 协议是明文的，存在很多缺点，比如传输内容会被偷窥（嗅探）和篡改。 SSL 协议的作用就是在传输层对网络连接进行加密。
 
-1. 何为TLS？
+2. 何为TLS？
 
 到了1999年，SSL 因为应用广泛，已经成为互联网上的事实标准。IETF 就在那年把 SSL 标准化。标准化之后的名称改为 TLS（Transport Layer Security，传输层安全协议）。**SSL与TLS可以视作同一个东西的不同阶段**
 
 
 
-1. HTTPS
+3. HTTPS
 
 简单来说，HTTPS = HTTP + SSL/TLS, 也就是 HTTP over SSL 或 HTTP over TLS，这是后面加 S 的由来 。
 
@@ -59,7 +59,7 @@ NSURL *URL = [NSURL URLWithString:URLString];
 
 
 
-1. 基于AFNetWorking的SSL特定服务器证书信任处理，重写AFNetWorking的customSecurityPolicy方法,这里我创建了一个HttpRequest类，分别对GET和POST方法进行了封装，以GET方法为例：
+2. 基于AFNetWorking的SSL特定服务器证书信任处理，重写AFNetWorking的customSecurityPolicy方法,这里我创建了一个HttpRequest类，分别对GET和POST方法进行了封装，以GET方法为例：
 
 
 
