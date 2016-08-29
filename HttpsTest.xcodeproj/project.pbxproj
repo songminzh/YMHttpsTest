@@ -16,8 +16,6 @@
 		0072B00C1D646C61000A1998 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0072B00A1D646C61000A1998 /* LaunchScreen.storyboard */; };
 		0072B0171D646C62000A1998 /* HttpsTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072B0161D646C62000A1998 /* HttpsTestTests.m */; };
 		0072B0221D646C62000A1998 /* HttpsTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0072B0211D646C62000A1998 /* HttpsTestUITests.m */; };
-		00994F881D66FA40000D2298 /* mieasyca.cer in Resources */ = {isa = PBXBuildFile; fileRef = 00994F871D66FA40000D2298 /* mieasyca.cer */; };
-		00994F8A1D670D0B000D2298 /* whrtCA.cer in Resources */ = {isa = PBXBuildFile; fileRef = 00994F891D670D0B000D2298 /* whrtCA.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +54,6 @@
 		0072B01D1D646C62000A1998 /* HttpsTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HttpsTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0072B0211D646C62000A1998 /* HttpsTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpsTestUITests.m; sourceTree = "<group>"; };
 		0072B0231D646C62000A1998 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00994F871D66FA40000D2298 /* mieasyca.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = mieasyca.cer; sourceTree = "<group>"; };
-		00994F891D670D0B000D2298 /* whrtCA.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = whrtCA.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +122,6 @@
 		0072AFFC1D646C61000A1998 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				00994F891D670D0B000D2298 /* whrtCA.cer */,
-				00994F871D66FA40000D2298 /* mieasyca.cer */,
 				0072AFFD1D646C61000A1998 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -254,10 +248,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00994F881D66FA40000D2298 /* mieasyca.cer in Resources */,
 				0072B00C1D646C61000A1998 /* LaunchScreen.storyboard in Resources */,
 				0072B0091D646C61000A1998 /* Assets.xcassets in Resources */,
-				00994F8A1D670D0B000D2298 /* whrtCA.cer in Resources */,
 				0072B0071D646C61000A1998 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

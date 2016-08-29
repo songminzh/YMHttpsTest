@@ -30,7 +30,7 @@
 - (void)getDataWithURLRequest {
     
     //connect
-    NSString *urlStr = @"https://app1.whrt.gov.cn/homepage.json";
+    NSString *urlStr = @"https://developer.apple.com/";//请替换你需要访问的URL
     NSURL *url = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
@@ -40,11 +40,14 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
     
-    
+    /*
+     
     //直接验证服务器是否被认证（serverTrust），这种方式直接忽略证书验证，信任该connect
-//    SecTrustRef serverTrust = [[challenge protectionSpace] serverTrust];
-//    return [[challenge sender] useCredential: [NSURLCredential credentialForTrust: serverTrust]
-//                  forAuthenticationChallenge: challenge];
+    SecTrustRef serverTrust = [[challenge protectionSpace] serverTrust];
+    return [[challenge sender] useCredential: [NSURLCredential credentialForTrust: serverTrust]
+                  forAuthenticationChallenge: challenge];
+     
+     */
     
     if ([[[challenge protectionSpace] authenticationMethod] isEqualToString: NSURLAuthenticationMethodServerTrust]) {
         do
@@ -54,12 +57,12 @@
             if(nil == serverTrust)
                 break; /* failed */
             /**
-             *  导入多张CA证书（Certification Authority，支持SSL证书以及自签名的CA）
+             *  导入多张CA证书（Certification Authority，支持SSL证书以及自签名的CA），请替换掉你的证书名称
              */
-            NSString *cerPath = [[NSBundle mainBundle] pathForResource:@"cloudwit" ofType:@"cer"];//自签名证书
+            NSString *cerPath = [[NSBundle mainBundle] pathForResource:@"caname1" ofType:@"cer"];//自签名证书
             NSData* caCert = [NSData dataWithContentsOfFile:cerPath];
             
-            NSString *cerPath2 = [[NSBundle mainBundle] pathForResource:@"apple" ofType:@"cer"];//SSL证书
+            NSString *cerPath2 = [[NSBundle mainBundle] pathForResource:@"caname2" ofType:@"cer"];//SSL证书
             NSData * caCert2 = [NSData dataWithContentsOfFile:cerPath2];
             
             NSCAssert(caCert != nil, @"caCert is nil");
@@ -121,10 +124,12 @@
 #endif
             
             // The only good exit point
+            NSLog(@"信任该证书");
             return [[challenge sender] useCredential: [NSURLCredential credentialForTrust: serverTrust]
                           forAuthenticationChallenge: challenge];
             
-        } while(0);
+        }
+        while(0);
     }
     
     // Bad dog
@@ -139,6 +144,7 @@
 
 #pragma mark -- connect的异步代理方法
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    
     NSLog(@"请求被响应");
     _mData = [[NSMutableData alloc]init];
 }
@@ -159,6 +165,7 @@
 
 //链接出错
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    
     NSLog(@"error - %@",error);
 }
 
