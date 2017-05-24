@@ -544,9 +544,8 @@ HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样�
 
 ```
 
-# 总结与Demo
+# 总结
 
 至此，HTTPS信任证书的问题得以解决，这不仅是为了响应Apple强制性使用ATS的要求，也是为了实际生产环境安全性的考虑，HTTPS是未来的趋势，建议尽早支持。
 
-如需参考Demo请移步[本人在Github上的开源项目](https://github.com/cos6meteors/HttpsTest)
 
