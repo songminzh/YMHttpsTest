@@ -2,7 +2,7 @@
 
 首先来分析一下什么是HTTPS以及了解HTTPS对于iOS开发者的意义
 
-##HTTPS 以及SSL/TSL
+## HTTPS 以及SSL/TSL
 
 * 什么是SSL？
 
@@ -31,7 +31,7 @@ SSL(Secure Sockets Layer, 安全套接字层)，因为原先互联网上使用�
 
 ![开发者网站截图](http://upload-images.jianshu.io/upload_images/2251123-26349f6f183fc569.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-** 此举为开发者提供了更多时间来做适配和支持。然而，对于iOS开发者来说，尽早解决HTTPS请求的问题仍为上策。**
+**此举为开发者提供了更多时间来做适配和支持。然而，对于iOS开发者来说，尽早解决HTTPS请求的问题仍为上策。**
 
 苹果ATS对HTTPS证书的要求
 
