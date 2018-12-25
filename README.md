@@ -1,1 +1,1 @@
-iOS https trust CA
+HTTPS CA 
